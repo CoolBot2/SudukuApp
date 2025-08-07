@@ -21,7 +21,7 @@ const randomInt= (max,min)=>{
   let val = Math.floor(Math.random()*(max-min)+min)
   return val
 }
-
+//check
 // const fillStart=()=>{
 //   const cells = document.querySelectorAll('.cell')
 //   const values = Array(81).fill('') // 81 leere Strings
