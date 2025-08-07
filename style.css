@@ -1,0 +1,28 @@
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  
+}
+th, td {
+  padding: 2px;
+  
+}
+.cell {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 24px;
+}
+#mesh {
+  margin: auto;
+  
+  text-align: center;
+}
+#mesh td:nth-child(3n)  { border-right: 5px solid #222; }
+/* Linke Außenkante */
+#mesh td:nth-child(1)   { border-left: 5px solid #222; }
+
+/* Untere dicke Linie nach jeder 3. Zeile */
+#mesh tr:nth-child(3n) td { border-bottom: 5px solid #222; }
+/* Obere Außenkante */
+#mesh tr:nth-child(1)   td { border-top: 5px solid #222; }
