@@ -4,7 +4,19 @@ const cells = document.querySelectorAll('.cell')
 const values = []
 
 cells.forEach((cell) => {
-  values.push(cell.value.trim())
+  if (cell.value>0 && cell.value<10) // Ensure the value is between 1 and 9
+  {
+    cell.style.backgroundColor = 'green' // Reset background color
+    values.push(cell.value.trim())
+  }
+  else {
+    //make the cell glow red
+    cell.style.backgroundColor = 'red'
+    setTimeout(() => {
+      cell.style.backgroundColor = ''
+    }, 1000) // Reset the background color after 500ms
+    values.push('') // Push an empty string if the cell is invalid
+  }
 })
 
 return values
@@ -139,3 +151,25 @@ let valid = false
   }
   window.onload=fillStart
  
+  const checkWin = () => {
+    const values = getValues();
+    const rows = getRows(values);
+    const columns = getColumns(values);
+    const boxes = getBoxes(values);
+
+    const allRowsValid = rows.every(check);
+    const allColsValid = columns.every(check);
+    const allBoxesValid = boxes.every(check);
+    const hasNoEmpty = values.every(value => value !== '');
+
+    
+    return allRowsValid && allColsValid && allBoxesValid && hasNoEmpty;
+  }
+const testCheckWin=()=>{
+  if(checkWin()){
+    document.getElementById("win").innerHTML="you win buddy"
+  }
+  else{
+    document.getElementById("win").innerHTML="you lose buddy"
+  }
+}
